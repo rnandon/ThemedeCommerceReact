@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 import Navbar from './components/Pages/Navbar/Navbar';
@@ -27,11 +26,3 @@ function App() {
 }
 
 export default App;
-
-const Home = () => {
-    return (
-        <Fragment>
-            <h1>Under construction</h1>
-        </Fragment>
-    )
-}
