@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+import AccountTab from '../AccountTab/AccountTab';
+
+const Navbar = ({ user }) => {
     // Store the search values before executing a search
     let [searchTerm, setSearchTerm] = useState("");
     const handleChange = (event) => {
@@ -18,7 +21,7 @@ const Navbar = () => {
                     </Link>
                 </form>
                 <div class="col-sm-2">
-                    { /* Put the login stuff here */ }
+                    <AccountTab user={user} />
                 </div>
             </div>
         </nav>

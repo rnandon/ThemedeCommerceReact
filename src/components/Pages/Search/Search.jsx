@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Search = () => {
+const Search = (props) => {
     return (
-        <h1>Under construction</h1>
+        <h1>Under construction {props.searchTerm} </h1>
     )
 }
 
