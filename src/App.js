@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 
@@ -15,7 +15,7 @@ import UploadItem from './components/Pages/UploadItem/UploadItem';
 
 function App() {
     // Get local login if there is one
-    const [user, setUser] = setState(null);
+    const [user, setUser] = useState(null);
     const jwt = localStorage.getItem('token');
     try{
         const localUser = jwtDecode(jwt);
