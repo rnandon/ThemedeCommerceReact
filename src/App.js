@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 
@@ -17,13 +17,14 @@ function App() {
     // Get local login if there is one
     const [user, setUser] = useState(null);
     const jwt = localStorage.getItem('token');
-    try{
-        const localUser = jwtDecode(jwt);
-        setUser(localUser);
-    } catch {
+    useEffect(() => {
+        try{
+            const localUser = jwtDecode(jwt);
+            setUser(localUser);
+        } catch {
 
-    }
-
+        }
+    }, [])
 
     return (
         <Router>
