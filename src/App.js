@@ -1,5 +1,4 @@
 import './App.css';
-import React from 'react';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
@@ -30,7 +29,7 @@ function App() {
 
     return (
         
-        <Router>
+        <><Router>
             <Navbar user={user} />
 
             <Switch>
@@ -43,16 +42,10 @@ function App() {
                 <Route path="/cart" component={Cart} />
                 <Route path="/Upload" component={UploadItem} />
             </Switch>
-        </Router>
+        </Router><Footer /></>
         
     );
 }
 
 export default App;
 
-function App() {
-    return (
-        <Footer />
-    );
-}
-export default App;
