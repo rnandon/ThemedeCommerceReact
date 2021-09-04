@@ -34,12 +34,12 @@ function App() {
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/search/:searchTerm" component={Search} />
-                <Route path="/product/:productId" component={ProductDetail} />
+                <Route path="/product/:productId" render={props => <ProductDetail {...props} user={user} /> } />
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
-                <Route path="/account" component={Account} />
-                <Route path="/cart" component={Cart} />
-                <Route path="/Upload" component={UploadItem} />
+                <Route path="/account" render={props => <Account {...props} user={user} /> } />
+                <Route path="/cart" render={props => <Cart {...props} user={user} /> } />
+                <Route path="/Upload" render={props => <UploadItem {...props} user={user} /> } />
                 <Route path="/notfound" component={NotFound} />
                 <Route path="*" component={NotFound} />
             </Switch>
