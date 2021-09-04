@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 
 import Navbar from './components/Elements/Navbar/Navbar';
