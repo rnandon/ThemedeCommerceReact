@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import useDataRetrieval from '../../../hooks/useDataRetrieval';
 
 const ProductDetail = (props) => {
+    const history = useHistory();
     const productId = props.match.params.productId;
     const data = useDataRetrieval(`https://localhost:44394/api/product/${productId}`);
     const [product, setProduct] = useState(false);
-    const [notFound, setNotFound] = useState(false);
 
     useEffect(() => {
         try{
             // Check if the data is actually usable, then set product to it
             if (data.data.name) {
                 setProduct(data.data);
+            } else if (data.data.status === 404) {
+                history.push("/notfound");
             }
-        } catch {
-            console.log(data);
-            if (data.status === 404) {
-                setNotFound(true);
-            }
+        } catch (err) {
+            // Don't need to do anything
         }
     }, [data])
 
@@ -32,13 +31,7 @@ const ProductDetail = (props) => {
                 <br />Price: {product.price}</p>
             </div>
         )
-    } else if (notFound) {
-        // Doesn't actually work. Need to add 404 page
-        return (
-            <h1>Product not found</h1>
-        )
-    }
-    else {
+    } else {
         return (
             <h1>Waiting on data...</h1>
         )

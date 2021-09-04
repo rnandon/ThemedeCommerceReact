@@ -12,6 +12,7 @@ import Register from './components/Pages/Register/Register';
 import Account from './components/Pages/Account/Account';
 import Cart from './components/Pages/Cart/Cart';
 import UploadItem from './components/Pages/UploadItem/UploadItem';
+import NotFound from './components/Pages/NotFound/NotFound';
 
 function App() {
     // Get local login if there is one
@@ -39,6 +40,8 @@ function App() {
                 <Route path="/account" component={Account} />
                 <Route path="/cart" component={Cart} />
                 <Route path="/Upload" component={UploadItem} />
+                <Route path="/notfound" component={NotFound} />
+                <Route path="*" component={NotFound} />
             </Switch>
         </Router>
     );
