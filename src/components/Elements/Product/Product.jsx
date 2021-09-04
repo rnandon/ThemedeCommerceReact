@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
     return (
-        <div className="row">
+        <Link to={`/product/${product.productId}`} className="row">
             <div className="col-xs-5">
                 { /* Image block */ }
             </div>
@@ -13,7 +14,7 @@ const Product = ({ product }) => {
                 <p>{product.category.name}</p>
                 <h4>{product.price}</h4>
             </div>
-        </div>
+        </Link>
     )
 }
 
