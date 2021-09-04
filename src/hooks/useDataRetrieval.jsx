@@ -10,10 +10,11 @@ const useDataRetrieval = (dataUrl) => {
 
     async function getData(url) {
         const response = await axios.get(url);
-        
         // When we have data, we need to get it to the data variable and make the page reload to handle it.
         if (response.data) {
             setData(response.data);
+        } else if (response.status === 404) {
+            setData({ status: 404 });
         }
     }
 
