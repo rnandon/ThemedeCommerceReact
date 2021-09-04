@@ -1,7 +1,9 @@
 import './App.css';
+import React from 'react';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import Footer from './components/Elements/Footer/Footer';
 
 import Navbar from './components/Elements/Navbar/Navbar';
 import Home from './components/Pages/Home/Home';
@@ -27,6 +29,7 @@ function App() {
     }, [])
 
     return (
+        
         <Router>
             <Navbar user={user} />
 
@@ -41,7 +44,15 @@ function App() {
                 <Route path="/Upload" component={UploadItem} />
             </Switch>
         </Router>
+        
     );
 }
 
+export default App;
+
+function App() {
+    return (
+        <Footer />
+    );
+}
 export default App;
