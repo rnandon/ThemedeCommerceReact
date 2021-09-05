@@ -21,6 +21,8 @@ function App() {
     useEffect(() => {
         try{
             const localUser = jwtDecode(jwt);
+            console.log(jwt);
+            console.log(localUser);
             setUser(localUser);
         } catch {
 

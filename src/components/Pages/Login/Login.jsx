@@ -9,12 +9,9 @@ import useLogin from '../../../hooks/useLogin';
 const Login = () => {
     const history = useHistory();
     const [error, setError] = useState("");
-    const [send] = useLogin();
-    const login = () => {
-        send(formValues, setError);
-        history.push("/");
-    }
-    const { formValues, handleChange, handleSubmit } = useForm(login);
+    const send = useLogin();
+    
+    const { formValues, handleChange, handleSubmit } = useForm(() => login(formValues, send, history));
 
     return (
         <div>
@@ -37,3 +34,10 @@ const Login = () => {
 }
 
 export default Login;
+
+function login(values, send, history) {
+        console.log("Values sent from login page"+ values.username + values.password);
+        send(values);
+        console.log("sent values");
+        history.push("/");
+}

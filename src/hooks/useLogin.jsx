@@ -1,23 +1,18 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function useLogin () {
-    const [data, setData] = useState({});
-    useEffect(() => {
-        if (data.data) {
-            localStorage.setItem('token', data.data.token);
-            window.location.reload(true);
-        }
-    }, [data])
+const useLogin = () => {
+    const [data, setData] = useState();
 
-    async function send(values, setError) {
+    async function send(values) {
         const response = await axios.post("https://localhost:44394/api/authentication/login", values);
-        if (response.data) {
-            setData(response);
-        } else if (response.status === 400){
-            setError("Username or password is incorrect.");
+        if (response.data.token) {
+            localStorage.setItem('token', response.data.token);
+            window.location.reload();
         }
     }
 
-    return [send];
+    return send;
 }
+
+export default useLogin;
