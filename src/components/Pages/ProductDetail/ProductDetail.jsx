@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
@@ -8,6 +9,35 @@ const ProductDetail = (props) => {
     const productId = props.match.params.productId;
     const data = useDataRetrieval(`https://localhost:44394/api/product/${productId}`);
     const [product, setProduct] = useState(false);
+    const [quantity, setQuantity] = useState(1);
+    const incrementQty = () => { setQuantity(quantity + 1) };
+    const decrementQty = () => {
+        if (quantity === 1) {
+            return;
+        }
+        setQuantity(quantity - 1);
+    };
+
+
+    const [addedToCart, setAddedToCart] = useState(false);
+
+    async function addToCart() {
+        const token = localStorage.getItem('token');
+        const auth = { Authorization: `Bearer ${token}`};
+        const userId = props.user.id;
+        const newCartEntry = {
+            "userid": userId,
+            "productid": parseInt(productId),
+            "quantity": quantity
+        }
+
+        const response = await axios.post("https://localhost:44394/api/cart", newCartEntry, { headers: auth });
+        if (response.data) {
+            setAddedToCart(true);
+        }
+
+        setQuantity(1);
+    }
 
     useEffect(() => {
         try{
@@ -29,6 +59,14 @@ const ProductDetail = (props) => {
                 <h1>Name: {product.name}</h1>
                 <p>Description: {product.description}
                 <br />Price: {product.price}</p>
+                <div>
+                    { /* Add to cart section */ }
+                    <button onClick={decrementQty} >-</button>
+                    <p>{quantity}</p>
+                    <button onClick={incrementQty} >+</button>
+                    <button onClick={addToCart} >Add to cart</button>
+                    {addedToCart && <h2>Successfully added to cart!</h2>}
+                </div>
             </div>
         )
     } else {

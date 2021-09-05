@@ -11,7 +11,6 @@ const Product = ({ product }) => {
                 { /* Description block */ }
                 <h1>{product.name}</h1>
                 <p>{product.description}</p>
-                <p>{product.category.name}</p>
                 <h4>{product.price}</h4>
             </div>
         </Link>

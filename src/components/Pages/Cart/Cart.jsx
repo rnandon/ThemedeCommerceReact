@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Product from '../../Elements/Product/Product';
 
 const Cart = (props) => {
+    console.log(props);
     const user = props.user;
     console.log(user.id);
     const cartUri = `https://localhost:44394/api/cart/user/${user.id}`;
@@ -31,8 +32,8 @@ const Cart = (props) => {
         } else {
             let total = 0;
             const cartItems = cart.map((item) => {
-                total += item.price;
-                return <Product product={item} />
+                total += item.product.price;
+                return <Product product={item.product} />
             })
             return (
                 <div>

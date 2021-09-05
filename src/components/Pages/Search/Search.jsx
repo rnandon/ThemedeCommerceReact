@@ -17,7 +17,6 @@ const Search = (props) => {
         try {
             // This just checks if results is defined. Will break if it isn't
             const resultsLength = results.length;
-            console.log("Results has a length");
             // Helps with conditional formatting. 
             // results === undefined -> still waiting
             // results === [] or [...] -> got results
@@ -38,7 +37,6 @@ const Search = (props) => {
     } else {
         // Received something to render
         const resultsComponents = results.map((result) => {
-            console.log(result);
             return <Product product={result} />
         })
 
