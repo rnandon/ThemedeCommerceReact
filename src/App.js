@@ -33,6 +33,7 @@ function App() {
         
         <><Router>
             <Navbar user={user} />
+            
 
             <Switch>
                 <Route path="/" exact component={Home} />
@@ -46,7 +47,13 @@ function App() {
                 <Route path="/notfound" component={NotFound} />
                 <Route path="*" component={NotFound} />
             </Switch>
-        </Router><Footer /></>
+            <div className="bgOpacity">
+      <div className="App">
+        <h1>Welcome!</h1>
+        <h2>Shop/Buy/Sell</h2>
+      </div>
+    </div>
+        </Router><Footer /></> 
         
     );
 }
