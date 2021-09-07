@@ -28,68 +28,76 @@ const Navbar = ({ user }) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-                <NavLink className="nav-link active" aria-current="page" to="/register">
-                Register
-                </NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink className="nav-link" to="/login">
-                    Login
-                </NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink className="nav-link" to="/account">
-                    Account Info
-                </NavLink>
-            </li>
-            <li className="nav-item">
-                <NavLink className="nav-link" to="/cart">
-                Shopping Cart
-                </NavLink>
-            </li>
-            <li className="nav-item dropdown">
-                <NavLink
-                    className="nav-link dropdown-toggle"
-                    to="/home/cart"
-                    id="navbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                    style={{ color: "gray" }}
-                >
-                Products
-                </NavLink>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
+                {!user &&
+                    <React.Fragment>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/login">
+                                Login
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/register">
+                                Register
+                            </NavLink>
+                        </li>
+                    </React.Fragment>
+                }       
+                {user &&
+                    <React.Fragment>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/account">
+                                Account Info
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/cart">
+                                Shopping Cart
+                            </NavLink>
+                        </li>
+                    </React.Fragment>
+                }
+                <li className="nav-item dropdown">
                     <NavLink
-                    className="dropdown-item"
-                    to="/"
-                    style={{ color: "black", backgroundColor: "grey" }}
+                        className="nav-link dropdown-toggle"
+                        to="/home/cart"
+                        id="navbarDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        style={{ color: "gray" }}
                     >
-                    Category
+                    Products
                     </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        className="dropdown-item"
-                        to="/"
-                        style={{ color: "black", backgroundColor: "white" }}
-                    >
-                    Category
-                    </NavLink>
-                    </li>
-                <li>
-                    <NavLink
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                        <NavLink
                         className="dropdown-item"
                         to="/"
                         style={{ color: "black", backgroundColor: "grey" }}
-                    >
-                    Category
-                    </NavLink>
+                        >
+                        Category
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            className="dropdown-item"
+                            to="/"
+                            style={{ color: "black", backgroundColor: "white" }}
+                        >
+                        Category
+                        </NavLink>
+                        </li>
+                    <li>
+                        <NavLink
+                            className="dropdown-item"
+                            to="/"
+                            style={{ color: "black", backgroundColor: "grey" }}
+                        >
+                        Category
+                        </NavLink>
+                    </li>
+                    </ul>
                 </li>
-                </ul>
-            </li>
             </ul>
             <form className="d-flex" method="get" action={"/"}>
             <input

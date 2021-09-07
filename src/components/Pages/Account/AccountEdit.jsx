@@ -4,16 +4,16 @@ import { useHistory } from "react-router-dom";
 
 import useForm from '../../../hooks/useForm';
 import useLogin from '../../../hooks/useLogin';
-import useRegister from '../../../hooks/useRegister';
+import useUpdateAccount from '../../../hooks/useUpdateAccount';
 
-const Register = () => {
+const AccountEdit = () => {
     const history = useHistory();
     const [error, setError] = useState("");
-    const { register, userInfo } = useRegister();
-    const send = useLogin();
+    const { update, userInfo } = useUpdateAccount();
+    const [send] = useLogin();
     const sendRegistration = () => {
         console.log(formValues);
-        register(formValues);
+        update(formValues);
         history.push("/");
     }
     const { formValues, handleChange, handleSubmit } = useForm(sendRegistration);
@@ -60,4 +60,4 @@ const Register = () => {
     )
 }
 
-export default Register;
+export default AccountEdit;
