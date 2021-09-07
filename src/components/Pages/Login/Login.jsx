@@ -8,18 +8,13 @@ import useLogin from '../../../hooks/useLogin';
 
 const Login = () => {
     const history = useHistory();
-    const [error, setError] = useState("");
-    const [send] = useLogin();
-    const login = () => {
-        send(formValues, setError);
-        history.push("/");
-    }
-    const { formValues, handleChange, handleSubmit } = useForm(login);
+    const send = useLogin();
+    
+    const { formValues, handleChange, handleSubmit } = useForm(() => login(formValues, send, history));
 
     return (
         <div>
             <form onSubmit={handleSubmit} >
-                <h1>{error}</h1>
                 <div class="mb-3">
                     <label for="usernameInput" class="form-label">Username</label>
                     <input type="username" name="username" value={formValues.username} onChange={handleChange} class="form-control" id="usernameInput" aria-describedby="emailHelp" />
@@ -37,3 +32,8 @@ const Login = () => {
 }
 
 export default Login;
+
+function login(values, send, history) {
+        send(values);
+        history.push("/");
+}
