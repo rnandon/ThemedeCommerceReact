@@ -49,13 +49,13 @@ const Navbar = ({ user }) => {
                                 Account Info
                             </NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/cart">
+                                Shopping Cart
+                            </NavLink>
+                        </li>
                     </React.Fragment>
                 }
-                <li className="nav-item">
-                    <NavLink className="nav-link" to="/cart">
-                        Shopping Cart
-                    </NavLink>
-                </li>
                 <li className="nav-item dropdown">
                     <NavLink
                         className="nav-link dropdown-toggle"
