@@ -12,6 +12,7 @@ import Register from './components/Pages/Register/Register';
 import Account from './components/Pages/Account/Account';
 import Cart from './components/Pages/Cart/Cart';
 import UploadItem from './components/Pages/UploadItem/UploadItem';
+import NotFound from './components/Pages/NotFound/NotFound';
 
 function App() {
     // Get local login if there is one
@@ -21,9 +22,7 @@ function App() {
         try{
             const localUser = jwtDecode(jwt);
             setUser(localUser);
-        } catch {
-
-        }
+        } catch {}
     }, [])
 
     return (
@@ -33,12 +32,14 @@ function App() {
             <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/search/:searchTerm" component={Search} />
-                <Route path="/ProductDetail/:productId" component={ProductDetail} />
+                <Route path="/product/:productId" render={props => <ProductDetail {...props} user={user} /> } />
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
-                <Route path="/account" component={Account} />
-                <Route path="/cart" component={Cart} />
-                <Route path="/Upload" component={UploadItem} />
+                <Route path="/account" render={props => <Account {...props} user={user} /> } />
+                <Route path="/cart" render={props => <Cart {...props} user={user} /> } />
+                <Route path="/Upload" render={props => <UploadItem {...props} user={user} /> } />
+                <Route path="/notfound" component={NotFound} />
+                <Route path="*" component={NotFound} />
             </Switch>
         </Router>
     );
