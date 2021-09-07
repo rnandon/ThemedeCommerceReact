@@ -1,0 +1,21 @@
+import React, {useState, useEffect } from 'react';
+import axios from 'axios';
+
+export default function useUpdateAccount () {
+    const [data, setData] = useState({});
+    const [userInfo, setUserInfo] = useState({});
+    useEffect(() => {
+        if (data.data) {
+            setUserInfo(data.data);
+        }
+    }, [data])
+
+    async function update(values) {
+        const response = await axios.put("https://localhost:44394/api/user", values);
+        if (response.data) {
+            setData(response);
+        }
+    }
+
+    return { update, userInfo };
+}
