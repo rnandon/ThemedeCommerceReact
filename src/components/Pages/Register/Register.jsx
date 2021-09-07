@@ -10,7 +10,7 @@ const Register = () => {
     const history = useHistory();
     const [error, setError] = useState("");
     const { register, userInfo } = useRegister();
-    const [send] = useLogin();
+    const send = useLogin();
     const sendRegistration = () => {
         console.log(formValues);
         register(formValues);
