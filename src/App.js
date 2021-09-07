@@ -19,6 +19,7 @@ function App() {
     // Get local login if there is one
     const [user, setUser] = useState(null);
     const jwt = localStorage.getItem('token');
+    const deleteItem = useState(null);
     useEffect(() => {
         try{
             const localUser = jwtDecode(jwt);
@@ -26,6 +27,8 @@ function App() {
         } catch {}
     }, [])
 
+
+    
     return (
         
         <><Router>

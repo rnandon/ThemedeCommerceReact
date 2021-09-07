@@ -53,8 +53,22 @@ const Cart = (props) => {
                 getCart();
             }
         }
+        
     }
-
+    const deleteItem = async (id) => {
+                console.log(this.props)
+                axios.delete(`http://localhost:44394/`)
+                let response = await this.getAllProducts()
+                if(response === undefined){
+                    this.useState({
+        
+                    });
+                }
+                else{
+                    this.useState({
+                        songs: response.data
+                    });
+                }}
     useEffect(() => {
         getCart();
     }, [])
@@ -68,14 +82,16 @@ const Cart = (props) => {
             let total = 0;
             const cartItems = cart.map((item) => {
                 total += item.product.price;
-                return <Product product={item.product} />
+                return <><Product product={item.product} /><div>
+                    <button onClick={() => props.deleteItem(props.id)}>Delete</button>
+                </div></>
             })
             return (
                 <div>
                     <h1>Your cart:</h1>
                     {cartItems}
                     <h2>Total price: {total}</h2>
-                    <button onClick={checkout} >Checkout</button>
+                    <button onClick={checkout}>Checkout</button>
                     {orderConfirmed && <h2>Order placed!</h2>}
                 </div>
             )
