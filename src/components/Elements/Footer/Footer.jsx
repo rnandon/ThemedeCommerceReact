@@ -8,27 +8,18 @@ function Footer() {
         <div className="row">
           {/* Column1 */}
           <div className="col">
-            <h4>THICC MEMES INC</h4>
+            <h4>Sport Stick</h4>
             <h1 className="list-unstyled">
-              <li>342-420-6969</li>
-              <li>Moscow, Russia</li>
-              <li>123 Streeet South North</li>
+              <li>555-555-5555</li>
+              <li>USA</li>
+              <li>DevCodeCamp</li>
             </h1>
           </div>
           {/* Column2 */}
           <div className="col">
             <h4>Stuff</h4>
             <ui className="list-unstyled">
-              <li>DANK MEMES</li>
-              <li>OTHER STUFF</li>
-              <li>GUD STUFF</li>
-            </ui>
-          </div>
-          {/* Column3 */}
-          <div className="col">
-            <h4>WELL ANOTHER COLUMN</h4>
-            <ui className="list-unstyled">
-              <li>DANK MEMES</li>
+              <li>THINGS and STUFF</li>
               <li>OTHER STUFF</li>
               <li>GUD STUFF</li>
             </ui>
@@ -37,7 +28,7 @@ function Footer() {
         <hr />
         <div className="row">
           <p className="col-sm">
-            &copy;{new Date().getFullYear()} THICC MEMES | All rights reserved |
+            &copy;{new Date().getFullYear()} SportStick | All rights reserved |
             Terms Of Service | Privacy
           </p>
         </div>
