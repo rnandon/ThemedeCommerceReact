@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
+import './Login.css';
 
 import { Link } from 'react-router-dom';
 import useForm from '../../../hooks/useForm';
@@ -13,7 +14,7 @@ const Login = () => {
     const { formValues, handleChange, handleSubmit } = useForm(() => login(formValues, send, history));
 
     return (
-        <div>
+        <div class='form'>
             <form onSubmit={handleSubmit} >
                 <div class="mb-3">
                     <label for="usernameInput" class="form-label">Username</label>

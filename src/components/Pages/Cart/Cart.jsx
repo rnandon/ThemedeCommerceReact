@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import './Cart.css';
 
 import Product from '../../Elements/Product/Product';
 
@@ -71,11 +72,11 @@ const Cart = (props) => {
                 return <Product product={item.product} />
             })
             return (
-                <div>
+                <div class='cart'>
                     <h1>Your cart:</h1>
                     {cartItems}
                     <h2>Total price: {total}</h2>
-                    <button onClick={checkout} >Checkout</button>
+                    <button onClick={checkout} class="btn btn-primary">Checkout</button>
                     {orderConfirmed && <h2>Order placed!</h2>}
                 </div>
             )

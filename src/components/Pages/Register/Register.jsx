@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
+import "./Register.css";
 
 import useForm from '../../../hooks/useForm';
 import useLogin from '../../../hooks/useLogin';
@@ -29,6 +30,7 @@ const Register = () => {
     }, [userInfo])
 
     return (
+        <div class='form'>
         <form onSubmit={handleSubmit} >
             <h1>{error}</h1>
             <div class="mb-3">
@@ -57,6 +59,7 @@ const Register = () => {
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        </div>
     )
 }
 
