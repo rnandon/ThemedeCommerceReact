@@ -5,7 +5,7 @@ function Footer() {
   return (
     <div className="main-footer">
       <div className="container">
-        <div className="row">
+        <div className="center">
           {/* Column1 */}
           <div className="col">
             <h1 className="list-unstyled">
@@ -15,7 +15,7 @@ function Footer() {
           </div>
         </div>
         <hr />
-        <div className="row">
+        <div className="center">
           <p className="col-sm">
             &copy;{new Date().getFullYear()} SportStick | Ryan, Craig, Nate and Koy
             | 

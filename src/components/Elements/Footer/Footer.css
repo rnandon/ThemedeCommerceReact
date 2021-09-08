@@ -1,7 +1,8 @@
 .main-footer {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 115, 0);
+  border-radius: 25em;
   background-image:url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1adb4bd5-7c37-4297-950e-dbeea69e6778/d57f6vl-4a419ea4-2fb7-4b49-9629-9697e55be827.jpg/v1/fill/w_900,h_463,q_75,strp/more_star_wars_fanart_by_oomizuao-d57f6vl.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8xYWRiNGJkNS03YzM3LTQyOTctOTUwZS1kYmVlYTY5ZTY3NzgvZDU3ZjZ2bC00YTQxOWVhNC0yZmI3LTRiNDktOTYyOS05Njk3ZTU1YmU4MjcuanBnIiwid2lkdGgiOiI8PTkwMCIsImhlaWdodCI6Ijw9NDYzIn1dXX0.6BrKIe-7syTPdRG6vTsY3_hvpXNLr8J7YFl0HzGlSt0");
-  padding-top: 3em;
+  padding-top: 5em;
   position: center;
   bottom: 0;
   width: 100%;
