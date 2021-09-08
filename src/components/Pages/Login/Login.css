@@ -1,0 +1,37 @@
+.form{
+	position:fixed;
+	width: 450px;
+	font-size: 16px;
+	background: #6b6e72;
+	padding: 30px 30px 15px 30px;
+	border: 5px solid black;
+    margin: 40em;
+    margin-top: 15em;
+}
+.form input[type=submit],
+.form input[type=button],
+.form input[type=username],
+.form input[type=password]
+.form textarea,
+.form label
+{
+	font-family: sans-serif;
+	font-size: 16px;
+	color: white;
+
+}
+.form label {
+	display:block;
+	margin-bottom: 10px;
+}
+
+.form input[type=username],
+.form input[type=password]
+{
+	background: transparent;
+	border: none;
+	border-bottom: 1px dashed black;
+	width: 375px;
+	outline: none;
+	padding: 0px 0px 0px 0px;
+}
