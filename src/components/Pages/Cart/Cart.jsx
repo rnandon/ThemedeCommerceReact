@@ -92,11 +92,7 @@ const Cart = (props) => {
                     <h1>Your cart:</h1>
                     {cartItems}
                     <h2>Total price: {total}</h2>
-<<<<<<< HEAD
-                    <button onClick={checkout}>Checkout</button>
-=======
                     <button onClick={checkout} class="btn btn-primary">Checkout</button>
->>>>>>> 7363c50a5ce7b6992d655d2f9c4706a4e754bf00
                     {orderConfirmed && <h2>Order placed!</h2>}
                 </div>
             )
