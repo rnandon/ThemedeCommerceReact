@@ -2,6 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import Footer from './components/Elements/Footer/Footer';
 
 import Navbar from './components/Elements/Navbar/Navbar';
 import Home from './components/Pages/Home/Home';
@@ -18,6 +19,7 @@ function App() {
     // Get local login if there is one
     const [user, setUser] = useState(null);
     const jwt = localStorage.getItem('token');
+    const deleteItem = useState(null);
     useEffect(() => {
         try{
             const localUser = jwtDecode(jwt);
@@ -25,9 +27,13 @@ function App() {
         } catch {}
     }, [])
 
+
+    
     return (
-        <Router>
+        
+        <><Router>
             <Navbar user={user} />
+            
 
             <Switch>
                 <Route path="/" exact component={Home} />
@@ -41,8 +47,14 @@ function App() {
                 <Route path="/notfound" component={NotFound} />
                 <Route path="*" component={NotFound} />
             </Switch>
-        </Router>
+            <div className="bgOpacity">
+      <div className="App">
+      </div>
+    </div>
+        </Router><Footer /></> 
+        
     );
 }
 
 export default App;
+
