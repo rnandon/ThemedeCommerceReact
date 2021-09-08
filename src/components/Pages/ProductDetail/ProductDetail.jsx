@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import useDataRetrieval from '../../../hooks/useDataRetrieval';
+import Reviews from '../Reviews/Reviews';
 
 const ProductDetail = (props) => {
     const history = useHistory();
@@ -55,18 +56,19 @@ const ProductDetail = (props) => {
     if (product) {
         // Only works if the product is actually found
         return (
-            <div>
-                <h1>Name: {product.name}</h1>
-                <p>Description: {product.description}
-                <br />Price: {product.price}</p>
-                <div>
+            <div className="m-5 container">
+                <h1>{product.name}</h1>
+                <h2>Description: {product.description} </h2>
+                <h3>Price: {product.price}</h3>
+                <div className="btn-group p-3" role="group">
                     { /* Add to cart section */ }
-                    <button onClick={decrementQty} >-</button>
-                    <p>{quantity}</p>
-                    <button onClick={incrementQty} >+</button>
-                    <button onClick={addToCart} >Add to cart</button>
-                    {addedToCart && <h2>Successfully added to cart!</h2>}
+                    <button className="btn btn-outline-secondary" onClick={decrementQty} >-</button>
+                    <button className="btn btn-outline-secondary">{quantity}</button>
+                    <button className="btn btn-outline-secondary" onClick={incrementQty} >+</button>
                 </div>
+                <button className="btn btn-success" onClick={addToCart} >Add to cart</button>
+                {addedToCart && <h2>Successfully added to cart!</h2>}
+                <Reviews productId={productId} user={props.user} />
             </div>
         )
     } else {
