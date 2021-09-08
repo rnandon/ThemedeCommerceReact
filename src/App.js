@@ -49,8 +49,6 @@ function App() {
             </Switch>
             <div className="bgOpacity">
       <div className="App">
-        <h1>Welcome!</h1>
-        <h2>Shop/Buy/Sell</h2>
       </div>
     </div>
         </Router><Footer /></> 
